@@ -1,5 +1,5 @@
+import Navbar from "@/_components/Navbar";
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,24 +24,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="px-2">
-          <ul className="flex divide-x divide-zinc-800 border-b border-zinc-800 py-2 mb-10">
-            {[
-              { title: "Home", link: "/" },
-              { title: "Request Memoization", link: "/request-memoization" },
-              { title: "Data Cache", link: "/data-cache" },
-              { title: "Full Route Cache", link: "/full-route-cache" },
-              { title: "Router Cache", link: "/router-cache" },
-            ].map((item, index) => (
-              <li
-                key={item.title}
-                className={`${index === 0 ? "pl-0" : "pl-4"} pr-4`}
-              >
-                <Link prefetch={false} href={item.link}>
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <Navbar />
           {children}
         </div>
       </body>
