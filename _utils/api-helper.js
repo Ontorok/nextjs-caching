@@ -5,7 +5,7 @@ export const getData = async (apiURL, caller, options = {}) => {
 
   const startTime = performance.now();
 
-  const response = await fetch(apiURL, options);
+  const response = await fetch(apiURL, { ...options });
 
   const endTime = performance.now();
   const duration = (endTime - startTime).toFixed(2);
